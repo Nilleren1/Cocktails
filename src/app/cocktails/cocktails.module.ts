@@ -13,7 +13,8 @@ import { CocktailsPage } from './cocktails.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    CocktailsPageRoutingModule
+    CocktailsPageRoutingModule,
+    
   ],
   declarations: [CocktailsPage]
 })
