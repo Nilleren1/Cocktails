@@ -18,24 +18,13 @@ export class CocktailsPage implements OnInit {
 
   swiperModules = [IonicSlides];
 
+  //Static contnet for now
   popularCocktails = [
     { name: 'Cocktail 1', image: 'https://www.foodandwine.com/thmb/Ua44qSI9Ukdtq4m3y2a7JJRsGk8=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/Negroni-Sbagliato-3-RECIPE1222-fb705196ed13408a97f4acb7d88f6fc2.jpg' },
     { name: 'Cocktail 2', image: 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/negroni-ca29c0a.jpg' },
     { name: 'Cocktail 3', image: 'https://hips.hearstapps.com/hmg-prod/images/cocktails-1594319263.jpg' },
-    // Add more cocktails here
   ];
   
-  // Swiper Configuration
-swiperConfig: SwiperOptions = {
-  slidesPerView: 'auto', // Display as many slides as fit within the container
-  spaceBetween: 10,
-  autoplay: {
-    delay: 2000, // Autoplay delay in milliseconds
-  },
-  loop: true,
-};
-
-
   constructor(
     private ApiService: ApiService, 
     private loadingCtrl: LoadingController
