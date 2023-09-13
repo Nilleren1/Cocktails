@@ -6,24 +6,20 @@
     </ion-toolbar>
   </ion-header>
 
+  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchCocktail()" (ionClear)="clearSearch()"></ion-searchbar>
+
   <div *ngIf="!searchPerformed">
-    <swiper-container 
-    [modules]="swiperModules"
-    [slidesPerView]="1.2"
-    [initialSlide]="1"
-    [centeredSlides]="true"
-    [autoplay]="true"
-    [spaceBetween]="20"
-    [pagination]="{clickable: true, dynamicbullets: true}">
+    <h4 style="font-weight: 700; margin-left: 35px;">Popular Cocktails</h4>
+    <swiper-container [modules]="swiperModules" [slidesPerView]="1.2" [initialSlide]="1" [centeredSlides]="true"
+      [autoplay]="true" [spaceBetween]="20" [pagination]="{clickable: true, dynamicbullets: true}">
       <swiper-slide *ngFor="let cocktail of popularCocktails">
         <img [src]="cocktail.image" alt="{{ cocktail.name }}" />
       </swiper-slide>
-  </swiper-container>
+    </swiper-container>
   </div>
 
-  <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchCocktail()" (ionClear)="clearSearch()"></ion-searchbar>
-  
-  <ng-container *ngIf="searchPerformed && (!cocktailData?.drinks || cocktailData.drinks.length === 0); else showResults">
+  <ng-container
+    *ngIf="searchPerformed && (!cocktailData?.drinks || cocktailData.drinks.length === 0); else showResults">
     <div class="ion-text-center">
       <h4>No search results found</h4>
     </div>
