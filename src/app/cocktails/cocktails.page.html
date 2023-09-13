@@ -1,10 +1,26 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Cocktails</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Popular Cocktails</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngIf="!searchPerformed">
+    <swiper-container 
+    [modules]="swiperModules"
+    [slidesPerView]="1.2"
+    [initialSlide]="1"
+    [centeredSlides]="true"
+    [autoplay]="true"
+    [spaceBetween]="20"
+    [pagination]="{clickable: true, dynamicbullets: true}">
+      <swiper-slide *ngFor="let cocktail of popularCocktails">
+        <img [src]="cocktail.image" alt="{{ cocktail.name }}" />
+      </swiper-slide>
+  </swiper-container>
+  </div>
+
   <ion-searchbar [(ngModel)]="searchTerm" (ionChange)="searchCocktail()" (ionClear)="clearSearch()"></ion-searchbar>
   
   <ng-container *ngIf="searchPerformed && (!cocktailData?.drinks || cocktailData.drinks.length === 0); else showResults">
