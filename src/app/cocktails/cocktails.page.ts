@@ -11,6 +11,7 @@ export class CocktailsPage implements OnInit {
 
   cocktailData: any; 
   searchTerm: string = ''; 
+  searchPerformed = false;
 
   constructor(
     private ApiService: ApiService, 
@@ -33,17 +34,23 @@ export class CocktailsPage implements OnInit {
   }
 
   async searchCocktail() {
+    if (!this.searchTerm) {
+      this.searchPerformed = false;
+      return;
+    }
+  
     const loading = await this.loadingCtrl.create({
       message: 'Loading...'
     });
     await loading.present();
-
+  
     this.ApiService.getCocktailByName(this.searchTerm).subscribe(data => {
       this.cocktailData = data;
+      this.searchPerformed = true;
       loading.dismiss();
     });
   }
-
+  
   // API returns ingredients as seperate properties therfor this function to loop through them
   getIngredients(cocktail: any) {
     let ingredients = [];
@@ -53,5 +60,16 @@ export class CocktailsPage implements OnInit {
       }
     }
     return ingredients;
+  }
+  
+  // API returns measurements as seperate properties therfor this function to loop through them
+  getMeasurements(cocktail: any) {
+    let measurement = [];
+    for (let i = 1; i <= 15; i++) {
+      if (cocktail['strMeasure' + i]) {
+        measurement.push(cocktail['strMeasure' + i]);
+      }
+    }
+    return measurement;
   }
 }

@@ -14,7 +14,6 @@ import { CocktailsPage } from './cocktails.page';
     FormsModule,
     IonicModule,
     CocktailsPageRoutingModule,
-    
   ],
   declarations: [CocktailsPage]
 })
