@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { CocktailsPageRoutingModule } from './cocktails-routing.module';
 import { CocktailsPage } from './cocktails.page';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { SwiperComponentModule } from '../shared/swiper/swiper.module';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -13,6 +13,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
     IonicModule,
     CocktailsPageRoutingModule,
+    SwiperComponentModule
   ],
   declarations: [CocktailsPage]
 })

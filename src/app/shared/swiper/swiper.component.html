@@ -1,0 +1,15 @@
+<div>
+  <swiper-container
+    [modules]="swiperModules"
+    [slidesPerView]="1.2"
+    [initialSlide]="1"
+    [centeredSlides]="true"
+    [autoplay]="true"
+    [spaceBetween]="20"
+    [pagination]="{ clickable: true, dynamicbullets: true }"
+  >
+    <swiper-slide *ngFor="let cocktail of popularCocktails">
+      <img [src]="cocktail.image" alt="{{ cocktail.name }}" />
+    </swiper-slide>
+  </swiper-container>
+</div>
