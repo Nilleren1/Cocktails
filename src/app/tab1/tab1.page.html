@@ -1,4 +1,7 @@
 <ion-header [translucent]="true">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
   <ion-toolbar>
     <ion-title>
       Home
@@ -6,10 +9,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+
+<ion-content [fullscreen]="true" style="border-right: 1px solid rgb(21, 179, 0); border-left: 1px solid rgba(0, 155.4, 178.5);">
         <!-- <ion-title size="large">Home</ion-title> -->
-      <ion-img class="hero-image" src="/src/assets/img/dreamstime_xxl_188649882.jpg"></ion-img>
-    
+    <ion-img class="hero-image"  onerror="this.style.display='none'" 
+  src="/src/assets/img/dreamstime_xxl_188649882.jpg">
+  </ion-img>
 
   
   <ion-header collapse="condense">
@@ -17,6 +22,11 @@
 
     </ion-toolbar>
   </ion-header>
+  
+    
+  
+  
+
   <br>
   <br>
   <ion-grid>
@@ -49,20 +59,30 @@
 
     <!-- Primary Menu selection -->
     <!-- Row 1 -->
-    <ion-row>
+    <ion-row style="align-items: center;">
       
 
-      <ion-col size="6">
-        <div style="text-align: center;  justify-content: center;">
-          <ion-icon class="neonIcon" aria-hidden="true" name="beer-outline"></ion-icon>
+      <ion-col size="5">
+        <div style="text-align: center;  justify-content: center;" routerLink="/tabs/cocktails">
+          <ion-icon class="neonIcon-blue" aria-hidden="true" src="../../assets/icon/tabsIcons/cocktail.svg"></ion-icon>
+        </div>
+        <br>
+        <div  style="text-align: center;  justify-content: center;">
+          <p>View all Cocktails</p>
         </div>
       </ion-col>
 
+      <!-- Create a separator -->
+      <ion-col size="2"></ion-col>
 
 
-      <ion-col size="6">
+      <ion-col size="5">
+        <div style="text-align: center;  justify-content: center;" routerLink="/tabs/filter-search">
+          <ion-icon class="neonIcon-green" aria-hidden="true" name="leaf-outline"></ion-icon>
+        </div>
+        <br>
         <div style="text-align: center;  justify-content: center;">
-          <ion-icon class="neonIcon" aria-hidden="true" name="leaf-outline"></ion-icon>
+          <p>Search by ingredients</p>
         </div>
       </ion-col>
 
@@ -76,18 +96,14 @@
     <ion-row>
       
 
-      <ion-col size="6">
-        <div style="text-align: center;  justify-content: center;">
-          <p>View the entire selection of cocktails,<br> in alphabetical order.</p>
-        </div>
+      <ion-col size="6" class="text-guide-blue">
+        
       </ion-col>
 
 
 
-      <ion-col size="6">
-        <div style="text-align: center;  justify-content: center;">
-          <p>Figure out what drinks you can make,<br> by searching for specific ingredients.</p>
-        </div>
+      <ion-col size="6" class="text-guide-green">
+        
       </ion-col>
 
       
